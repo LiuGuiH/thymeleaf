@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
+        <title>显示bean值</title>
+    </head>
+</head>
+<body>
+<h2>产品信息</h2>
+<dl>
+    <dt>产品名称:</dt>
+    <dd th:text="${product.description}">默认产品名称</dd>
+    <dt>产品价格:</dt>
+    <!--<dd th:text="${product.price}">350</dd>
+    <dt>产品有效时间:</dt>
+    <dd th:text="${product.availableFrom}">28-Jun-2018</dd>-->
+    <!--格式化输出-->
+    <!--字符串拼接-->
+    <dd th:text="${'￥'+#numbers.formatDecimal(product.price, 1, 2)}">350</dd>
+   <dt>产品有效时间:</dt>
+    <dd th:text="${#dates.format(product.availableFrom, 'yyyy-MM-dd')}">28-Jun-2018</dd>
+</dl>
+</body>
+</html>

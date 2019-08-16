@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
+        <title>字符串转义</title>
+    </head>
+
+<body>
+<h2> 字符串转义示例</h2>
+<!--th:text不会对字符串中的标签转义，th:utext会对字符串中的标签转义-->
+<div th:text="${html}">Some escaped text</div>
+<div th:utext="${html}">Some unescaped text</div>
+</body>
+</html>

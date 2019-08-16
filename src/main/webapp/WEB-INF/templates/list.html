@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
+        <title>迭代输出</title>
+    </head>
+<body>
+<h2>产品列表信息</h2>
+<table>
+    <thead>
+    <th>产品名称</th>
+    <th>价格</th>
+    <th>有效日期</th>
+    </thead>
+    <tbody th:remove="all-but-first">
+    <tr th:each="product : ${productList}" >
+     <td th:text="${product.description}">产品描述</td>
+        <td th:text="${'￥' + #numbers.formatDecimal(product.price, 1, 2)}">350</td>
+        <td th:text="${#dates.format(product.availableFrom, 'dd-MM-yyyy')}">2019-8-15</td>
+    </tr>
+    <tr>
+        <td>White table</td>
+        <td>￥200</td>
+        <td>2018-04-10</td>
+    </tr>
+    <tr>
+        <td>Reb table</td>
+        <td>￥200</td>
+        <td>2018-02-20</td>
+    </tr>
+    <tr>
+        <td>Blue table</td>
+        <td>￥200</td>
+        <td>2018-02-20</td>
+    </tr>
+   </tbody>
+
+</table>
+
+</body>
+</html>
